@@ -1,0 +1,35 @@
+        {endScene.character?.enabled && (
+          <motion.div
+            animate={endScene.character?.floating && endScene.animations?.characterAnimation ? { y: [-10, 10, -10] } : {}}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            className="mb-4 relative"
+            style={endScene.character?.type === 'photo' && endScene.character?.glow ? {
+              filter: `drop-shadow(0 0 ${endScene.character?.glowIntensity || 20}px rgba(255, 255, 255, 0.6))`
+            } : {}}
+          >
+            {endScene.character?.type === 'emoji' ? (
+              <span style={{ fontSize: `${endScene.character?.size}px`, lineHeight: 1 }}>
+                {endScene.character?.image}
+              </span>
+            ) : endScene.character?.type === 'photo' && endScene.character?.image ? (
+              <div 
+                style={{ 
+                  width: `${endScene.character?.size}px`, 
+                  height: `${endScene.character?.size}px`,
+                  borderRadius: `${endScene.character?.imageBorderRadius || 0}px`,
+                  overflow: 'hidden'
+                }}
+              >
+                <img 
+                  src={endScene.character?.image} 
+                  alt="Character" 
+                  style={{ 
+                    width: '100%', 
+                    height: '100%', 
+                    objectFit: endScene.character?.imageFit || 'contain'
+                  }}
+                />
+              </div>
+            ) : null}
+          </motion.div>
+        )}

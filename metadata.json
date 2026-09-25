@@ -1,0 +1,6 @@
+{
+  "name": "Birthday Surprise",
+  "description": "An interactive mobile-first birthday surprise microsite.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+@keyframes charReveal {
+  0% { opacity: 0; filter: blur(4px); text-shadow: 0 0 10px rgba(251, 191, 36, 0.8); }
+  100% { opacity: 1; filter: blur(0px); text-shadow: 0 0 0px rgba(251, 191, 36, 0); }
+}
+.char { opacity: 0; animation: charReveal 0.4s ease-out forwards; }
+.container { white-space: pre-wrap; font-family: Georgia, serif; width: 200px; border: 1px solid black; }
+</style>
+</head>
+<body>
+<div class="container" id="box"></div>
+<script>
+const text = "Happy 16th Birthday!\n\nThis is a test of word wrapping with spans.";
+const box = document.getElementById('box');
+let delay = 0;
+for(let c of text) {
+  const span = document.createElement('span');
+  span.className = 'char';
+  span.style.animationDelay = delay + 's';
+  span.textContent = c;
+  box.appendChild(span);
+  delay += 0.05;
+}
+</script>
+</body>
+</html>
